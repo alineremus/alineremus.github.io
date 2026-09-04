@@ -1,0 +1,1782 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>rede-colaboracoes-modelo-1.html</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="rede-colaboracoes-modelo-1.html" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'&quot;&gt;
+&lt;title&gt;rede-colaboracoes-modelo-1.html&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const parentWindow = globalThis.parent;
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.documentElement;
+  const initialGlobals =
+    globalThis.__codexVisualizationInitialGlobals ?? globalThis.openai;
+  delete globalThis.__codexVisualizationInitialGlobals;
+  let appliedProperties = [];
+
+  const applyHostStyleVariables = (styleVariables) =&gt; {
+    if (styleVariables == null || typeof styleVariables !== &quot;object&quot;) {
+      return;
+    }
+    for (const property of appliedProperties) {
+      root.style.removeProperty(property);
+    }
+    appliedProperties = [];
+    for (const [property, value] of Object.entries(styleVariables)) {
+      if (property.startsWith(&quot;--&quot;) &amp;&amp; typeof value === &quot;string&quot;) {
+        root.style.setProperty(property, value);
+        appliedProperties.push(property);
+      }
+    }
+  };
+
+  const syncHostStyles = (globals) =&gt; {
+    applyHostStyleVariables(globals?.visualizationStyleVariables);
+    const sandboxDocument = globalThis.frameElement?.ownerDocument;
+    if (sandboxDocument != null &amp;&amp; globals?.visualizationTheme != null) {
+      let colorSchemeMeta = sandboxDocument.querySelector(
+        'meta[name=&quot;color-scheme&quot;]',
+      );
+      if (colorSchemeMeta == null) {
+        colorSchemeMeta = sandboxDocument.createElement(&quot;meta&quot;);
+        colorSchemeMeta.name = &quot;color-scheme&quot;;
+        sandboxDocument.head.appendChild(colorSchemeMeta);
+      }
+      colorSchemeMeta.content = globals.visualizationTheme;
+      sandboxDocument.documentElement.style.colorScheme =
+        globals.visualizationTheme;
+    }
+  };
+
+  syncHostStyles(initialGlobals);
+  globalThis.addEventListener(&quot;openai:set_globals&quot;, (event) =&gt; {
+    syncHostStyles(event.detail?.globals);
+  });
+})();
+&lt;/script&gt;
+
+&lt;section id=&quot;collab-map-model-1&quot; aria-labelledby=&quot;m1-title&quot;&gt;
+  &lt;style&gt;
+    #collab-map-model-1 { width: 100%; color: var(--foreground); }
+    #collab-map-model-1 .heading { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:8px; }
+    #collab-map-model-1 h2 { margin:0; font-weight:500; }
+    #collab-map-model-1 .subtitle { margin:2px 0 0; color:var(--muted-foreground); }
+    #collab-map-model-1 .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted-foreground); }
+    #collab-map-model-1 .legend span { display:inline-flex; align-items:center; gap:6px; }
+    #collab-map-model-1 .key { width:10px; height:10px; display:inline-block; background:var(--viz-series-1); }
+    #collab-map-model-1 .key.academic { border-radius:50%; }
+    #collab-map-model-1 .key.industry { background:var(--viz-series-3); }
+    #collab-map-model-1 .key.network { background:var(--viz-series-5); transform:rotate(45deg); }
+    #collab-map-model-1 .map-wrap { position:relative; width:100%; min-height:390px; }
+    #collab-map-model-1 svg { display:block; width:100%; height:auto; }
+    #collab-map-model-1 .country { fill:var(--muted); stroke:var(--background); stroke-width:.45; }
+    #collab-map-model-1 .sphere { fill:color-mix(in srgb, var(--muted) 35%, transparent); stroke:var(--border); stroke-width:1; }
+    #collab-map-model-1 .arc { fill:none; stroke-width:1.15; opacity:.32; }
+    #collab-map-model-1 .arc.academic { stroke:var(--viz-series-1); }
+    #collab-map-model-1 .arc.industry { stroke:var(--viz-series-3); stroke-dasharray:4 3; }
+    #collab-map-model-1 .arc.network { stroke:var(--viz-series-5); stroke-dasharray:1.5 3; }
+    #collab-map-model-1 .node { cursor:pointer; outline:none; }
+    #collab-map-model-1 .node .hit { fill:transparent; }
+    #collab-map-model-1 .node .mark { stroke:var(--background); stroke-width:1.4; }
+    #collab-map-model-1 .node.academic .mark { fill:var(--viz-series-1); }
+    #collab-map-model-1 .node.industry .mark { fill:var(--viz-series-3); }
+    #collab-map-model-1 .node.network .mark { fill:var(--viz-series-5); }
+    #collab-map-model-1 .node.hub .mark { fill:var(--foreground); stroke:var(--background); stroke-width:2; }
+    #collab-map-model-1 .node:focus .focus-ring, #collab-map-model-1 .node:hover .focus-ring { fill:none; stroke:var(--ring); stroke-width:2; }
+    #collab-map-model-1 .label { fill:var(--foreground); font-weight:500; paint-order:stroke; stroke:var(--background); stroke-width:3px; stroke-linejoin:round; }
+    #collab-map-model-1 .region-label { fill:var(--muted-foreground); letter-spacing:.08em; text-transform:uppercase; }
+    #collab-map-model-1 .detail { margin-top:8px; }
+    #collab-map-model-1 .detail h3 { margin:0 0 4px; font-weight:500; }
+    #collab-map-model-1 .detail p { margin:0; }
+    #collab-map-model-1 .directory { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:14px; }
+    #collab-map-model-1 .directory h3 { margin:0 0 6px; font-weight:500; }
+    #collab-map-model-1 .directory ul { list-style:none; padding:0; margin:0; }
+    #collab-map-model-1 .directory li { margin:0 0 6px; color:var(--muted-foreground); }
+    #collab-map-model-1 .directory strong { color:var(--foreground); font-weight:500; }
+    #collab-map-model-1 .directory .industry { color:var(--foreground); }
+    #collab-map-model-1 .note { margin-top:6px; color:var(--muted-foreground); }
+    @media (max-width:820px) { #collab-map-model-1 .directory { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:520px) {
+      #collab-map-model-1 .map-wrap { min-height:280px; }
+      #collab-map-model-1 .region-label, #collab-map-model-1 .optional-label { display:none; }
+      #collab-map-model-1 .legend { gap:9px; }
+      #collab-map-model-1 .directory { grid-template-columns:1fr; }
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;heading&quot;&gt;
+    &lt;div&gt;
+      &lt;h2 id=&quot;m1-title&quot;&gt;Modelo 1 · Rede geográfica detalhada&lt;/h2&gt;
+      &lt;p class=&quot;subtitle&quot;&gt;Sherbrooke como núcleo de uma rede acadêmica, tecnológica e institucional&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;legend text-small&quot; aria-label=&quot;Legenda&quot;&gt;
+      &lt;span&gt;&lt;i class=&quot;key academic&quot;&gt;&lt;/i&gt;Academia e pesquisa&lt;/span&gt;
+      &lt;span&gt;&lt;i class=&quot;key industry&quot;&gt;&lt;/i&gt;Indústria&lt;/span&gt;
+      &lt;span&gt;&lt;i class=&quot;key network&quot;&gt;&lt;/i&gt;Comitês e redes&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;map-wrap&quot;&gt;&lt;svg role=&quot;img&quot; aria-labelledby=&quot;m1-svg-title m1-svg-desc&quot;&gt;&lt;title id=&quot;m1-svg-title&quot;&gt;Rede internacional de colaboração de Aline Remus&lt;/title&gt;&lt;desc id=&quot;m1-svg-desc&quot;&gt;Mapa-múndi com ligações entre o núcleo no AAFC em Sherbrooke e instituições colaboradoras no Canadá, Estados Unidos, Brasil e Europa.&lt;/desc&gt;&lt;/svg&gt;&lt;/div&gt;
+  &lt;div class=&quot;card detail&quot; aria-live=&quot;polite&quot;&gt;&lt;h3&gt;AAFC · Sherbrooke&lt;/h3&gt;&lt;p&gt;Núcleo do programa científico: Cândido Pomar, Marie-France Palin, Hélène Lapierre, Steve Méthot, Danyel Bueno Dalto, Bernard Goyette, Rajinikanth Rajagopal e Renée Petri. Formação: Berta Llorens.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class=&quot;directory text-small&quot; aria-label=&quot;Instituições e colaboradores&quot;&gt;
+    &lt;section&gt;&lt;h3&gt;Canadá e Cluster 4&lt;/h3&gt;&lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;AAFC · Sherbrooke&lt;/strong&gt; — Cândido Pomar, Marie-France Palin, Hélène Lapierre, Steve Méthot, Danyel Bueno Dalto, Bernard Goyette, Rajinikanth Rajagopal e Renée Petri; formação de Berta Llorens&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Université Laval&lt;/strong&gt; — Marie-Pierre Létourneau-Montminy e Berta Llorens&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;University of Guelph&lt;/strong&gt; — Jennifer Ellis, Dan Tulpan, John Cant e Harry Aricibasi&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;McGill University&lt;/strong&gt; — Jennifer Ronholm&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Concordia University&lt;/strong&gt; — Adrian Tsang&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Université de Montréal&lt;/strong&gt; — Jérôme del Castillo&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Prairie Swine Centre&lt;/strong&gt; — Atta Agyekum e Marllon Oliveira&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Centre de développement du porc du Québec (CDPQ)&lt;/strong&gt; — Laetitia Cloutier&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;University of Nebraska–Lincoln&lt;/strong&gt; — Tami Brown&lt;/li&gt;
+      &lt;li class=&quot;industry&quot;&gt;&lt;strong&gt;Indústria:&lt;/strong&gt; JYGA Technologies · Cargill · Elanco/BioMEdit&lt;/li&gt;
+    &lt;/ul&gt;&lt;/section&gt;
+    &lt;section&gt;&lt;h3&gt;Brasil&lt;/h3&gt;&lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;UNESP&lt;/strong&gt; — Luciano Hauschild, Nilva Sakomura, Graziela Valini, Pedro Arnaut e Lorena Duarte Campos&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;UFRGS&lt;/strong&gt; — Ines Andretta, Marcos Kipper, Bruna Schroeder, Carolina Franceschi e Felipe Hickmann&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;UEPG&lt;/strong&gt; — Cheila Lehnen, Rafaela Hilgemberg e Pedro Galiotto Miranda&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;UFMS&lt;/strong&gt; — Luan Sousa dos Santos&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;UFV&lt;/strong&gt; — Jansller Luiz Genova&lt;/li&gt;
+    &lt;/ul&gt;&lt;/section&gt;
+    &lt;section&gt;&lt;h3&gt;Estados Unidos&lt;/h3&gt;&lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;UC Davis&lt;/strong&gt; — Ermias Kebreab e Vinícius Souza&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Texas A&amp;amp;M&lt;/strong&gt; — Luis Tedeschi&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;South Dakota State&lt;/strong&gt; — Hector Menendez&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;University of Idaho&lt;/strong&gt; — Izabelle Teixeira&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Texas A&amp;amp;M–Kingsville&lt;/strong&gt; — Benjamin Turner&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;University of Kentucky&lt;/strong&gt; — Ana Kate Shoveller&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Virginia Tech&lt;/strong&gt; — Mark Hanigan&lt;/li&gt;
+    &lt;/ul&gt;&lt;/section&gt;
+    &lt;section&gt;&lt;h3&gt;Europa e MODNUT&lt;/h3&gt;&lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;INRAE / Institut Agro · PEGASE&lt;/strong&gt; — Jaap van Milgen, Charlotte Gaillard, Florence Garcia-Launay e Rafael Muñoz-Tamayo&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Wageningen University / Farmworx&lt;/strong&gt; — Suresh Neethirajan e Jan Dijkstra&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;University of Sassari&lt;/strong&gt; — Antonello Cannas&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Agroscope&lt;/strong&gt; — Marion Lautrou&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Universidad de Zaragoza&lt;/strong&gt; — María Ángeles Latorre&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;CIHEAM Zaragoza&lt;/strong&gt; — Andrés Schlageter&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Universitat Politècnica de València&lt;/strong&gt; — María Cambra-López&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;University of Veterinary Medicine Vienna&lt;/strong&gt; — Sara Ricci&lt;/li&gt;
+      &lt;li class=&quot;industry&quot;&gt;&lt;strong&gt;Indústria:&lt;/strong&gt; Adisseo · MiXscience · FR Analytics&lt;/li&gt;
+    &lt;/ul&gt;&lt;/section&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;note text-small&quot;&gt;Selecione um ponto para identificar instituições e pesquisadores. As linhas representam vínculos científicos e institucionais.&lt;/p&gt;
+  &lt;script type=&quot;module&quot;&gt;
+    import * as d3 from &quot;https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm&quot;;
+    import {feature} from &quot;https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm&quot;;
+    import world from &quot;https://esm.sh/@d3-maps/atlas@1.0.0/world/countries/countries-110m&quot;;
+    const root = document.getElementById(&quot;collab-map-model-1&quot;);
+    const svg = d3.select(root.querySelector(&quot;svg&quot;));
+    const detail = root.querySelector(&quot;.detail&quot;);
+    const nodes = [
+      {name:&quot;AAFC · Sherbrooke&quot;, short:&quot;Sherbrooke&quot;, lon:-71.899, lat:45.404, type:&quot;hub&quot;, people:&quot;Núcleo do programa científico e instituição de Aline Remus no MODNUT. Cândido Pomar; Marie-France Palin; Hélène Lapierre; Steve Méthot; Danyel Bueno Dalto; Bernard Goyette; Rajinikanth Rajagopal; Renée Petri. Formação: Berta Llorens.&quot;, label:true},
+      {name:&quot;Université Laval&quot;,lon:-71.208,lat:46.813,type:&quot;academic&quot;,people:&quot;Marie-Pierre Létourneau-Montminy; Berta Llorens, estudante vinculada à Université Laval e ao AAFC.&quot;},
+      {name:&quot;Centre de développement du porc du Québec · CDPQ&quot;,lon:-71.25,lat:46.74,type:&quot;academic&quot;,people:&quot;Laetitia Cloutier.&quot;},
+      {name:&quot;University of Guelph&quot;,lon:-80.248,lat:43.544,type:&quot;academic&quot;,people:&quot;Jennifer Ellis; Dan Tulpan; John Cant; Harry Aricibasi.&quot;},
+      {name:&quot;McGill University&quot;,lon:-73.577,lat:45.504,type:&quot;academic&quot;,people:&quot;Jennifer Ronholm.&quot;},
+      {name:&quot;Concordia University&quot;,lon:-73.579,lat:45.497,type:&quot;academic&quot;,people:&quot;Adrian Tsang.&quot;},
+      {name:&quot;Université de Montréal&quot;,lon:-73.615,lat:45.505,type:&quot;academic&quot;,people:&quot;Jérôme del Castillo.&quot;},
+      {name:&quot;Prairie Swine Centre&quot;,lon:-106.67,lat:52.13,type:&quot;academic&quot;,people:&quot;Atta Agyekum; Marllon Oliveira.&quot;,label:true,short:&quot;Prairie Swine Centre&quot;},
+      {name:&quot;Swine Innovation Porc · Cluster 4&quot;,lon:-75.697,lat:45.421,type:&quot;network&quot;,people:&quot;Integração nacional do programa canadense de pesquisa em suínos.&quot;,label:true,short:&quot;Swine Cluster 4&quot;},
+      {name:&quot;University of Nebraska–Lincoln&quot;,lon:-96.70,lat:40.81,type:&quot;academic&quot;,people:&quot;Tami Brown; colaboração vinculada ao Swine Cluster 4.&quot;},
+      {name:&quot;JYGA Technologies&quot;,lon:-71.20,lat:46.59,type:&quot;industry&quot;,people:&quot;Tecnologias de alimentação de precisão.&quot;},
+      {name:&quot;Cargill&quot;,lon:-93.47,lat:44.92,type:&quot;industry&quot;,people:&quot;Colaboração industrial em nutrição e alimentação animal.&quot;},
+      {name:&quot;Elanco / BioMEdit&quot;,lon:-73.35,lat:45.55,type:&quot;industry&quot;,people:&quot;Colaboração industrial e analítica.&quot;},
+      {name:&quot;UNESP · Jaboticabal&quot;,lon:-48.32,lat:-21.25,type:&quot;academic&quot;,people:&quot;Luciano Hauschild; Nilva Sakomura; Graziela Valini; Pedro Arnaut; Lorena Duarte Campos.&quot;,label:true,short:&quot;UNESP&quot;},
+      {name:&quot;UFRGS&quot;,lon:-51.23,lat:-30.03,type:&quot;academic&quot;,people:&quot;Ines Andretta; Marcos Kipper; Bruna Schroeder; Carolina Franceschi; Felipe Hickmann.&quot;},
+      {name:&quot;UEPG&quot;,lon:-50.16,lat:-25.09,type:&quot;academic&quot;,people:&quot;Cheila Lehnen; Rafaela Hilgemberg; Pedro Galiotto Miranda.&quot;},
+      {name:&quot;UFMS&quot;,lon:-54.62,lat:-20.47,type:&quot;academic&quot;,people:&quot;Luan Sousa dos Santos.&quot;},
+      {name:&quot;UFV&quot;,lon:-42.88,lat:-20.75,type:&quot;academic&quot;,people:&quot;Jansller Luiz Genova.&quot;},
+      {name:&quot;INRAE / Institut Agro · PEGASE&quot;,lon:-1.83,lat:48.15,type:&quot;network&quot;,people:&quot;Jaap van Milgen; Charlotte Gaillard; Florence Garcia-Launay. Rafael Muñoz-Tamayo representa o INRAE no MODNUT.&quot;,label:true,short:&quot;INRAE · MODNUT&quot;},
+      {name:&quot;Adisseo&quot;,lon:2.30,lat:48.75,type:&quot;industry&quot;,people:&quot;Dolores Batonon-Alavo; Étienne Corrent — continuidade da colaboração iniciada na Ajinomoto.&quot;},
+      {name:&quot;MiXscience&quot;,lon:-1.75,lat:48.02,type:&quot;industry&quot;,people:&quot;William Lambert — continuidade da colaboração iniciada na METEX.&quot;},
+      {name:&quot;Universidad de Zaragoza&quot;,lon:-0.88,lat:41.65,type:&quot;academic&quot;,people:&quot;María Ángeles Latorre.&quot;},
+      {name:&quot;CIHEAM Zaragoza&quot;,lon:-0.90,lat:41.68,type:&quot;academic&quot;,people:&quot;Andrés Schlageter; colaboração em ensino e formação.&quot;},
+      {name:&quot;Universitat Politècnica de València&quot;,lon:-0.38,lat:39.47,type:&quot;academic&quot;,people:&quot;María Cambra-López.&quot;},
+      {name:&quot;Wageningen University / Farmworx&quot;,lon:5.66,lat:51.97,type:&quot;network&quot;,people:&quot;Suresh Neethirajan. Jan Dijkstra representa Wageningen no MODNUT.&quot;},
+      {name:&quot;FR Analytics&quot;,lon:6.59,lat:52.36,type:&quot;industry&quot;,people:&quot;Marc Jacobs.&quot;},
+      {name:&quot;University of Veterinary Medicine Vienna&quot;,lon:16.37,lat:48.21,type:&quot;academic&quot;,people:&quot;Sara Ricci.&quot;},
+      {name:&quot;UC Davis&quot;,lon:-121.74,lat:38.54,type:&quot;network&quot;,people:&quot;Ermias Kebreab, membro do MODNUT; Vinícius Souza.&quot;,label:true,short:&quot;UC Davis · MODNUT&quot;},
+      {name:&quot;Texas A&amp;M University&quot;,lon:-96.34,lat:30.63,type:&quot;academic&quot;,people:&quot;Luis Tedeschi.&quot;},
+      {name:&quot;South Dakota State University&quot;,lon:-96.79,lat:44.32,type:&quot;academic&quot;,people:&quot;Hector Menendez.&quot;},
+      {name:&quot;University of Idaho&quot;,lon:-117.00,lat:46.73,type:&quot;network&quot;,people:&quot;Izabelle Teixeira, membro do MODNUT.&quot;},
+      {name:&quot;Texas A&amp;M–Kingsville&quot;,lon:-97.86,lat:27.52,type:&quot;academic&quot;,people:&quot;Benjamin Turner.&quot;},
+      {name:&quot;University of Kentucky&quot;,lon:-84.50,lat:38.04,type:&quot;academic&quot;,people:&quot;Ana Kate Shoveller.&quot;},
+      {name:&quot;University of Sassari&quot;,lon:8.56,lat:40.73,type:&quot;network&quot;,people:&quot;Antonello Cannas, membro do MODNUT.&quot;},
+      {name:&quot;Virginia Tech&quot;,lon:-80.42,lat:37.23,type:&quot;network&quot;,people:&quot;Mark Hanigan, membro do MODNUT.&quot;},
+      {name:&quot;Agroscope&quot;,lon:7.10,lat:46.77,type:&quot;network&quot;,people:&quot;Marion Lautrou, membro da rede internacional do MODNUT.&quot;},
+      {name:&quot;NANP Modeling Committee&quot;,lon:-99.0,lat:36.5,type:&quot;network&quot;,people:&quot;Rede norte-americana de modelagem nutricional.&quot;,label:true,short:&quot;NANP&quot;}
+    ];
+    const countries = feature(world, world.objects.features).features;
+    const projection = d3.geoNaturalEarth1();
+    const path = d3.geoPath(projection);
+    const hub = nodes[0];
+    function draw(){
+      const width = Math.max(320, root.querySelector(&quot;.map-wrap&quot;).clientWidth);
+      const height = width &lt; 520 ? 300 : Math.min(520, width * .52);
+      svg.attr(&quot;viewBox&quot;, `0 0 ${width} ${height}`);
+      projection.fitExtent([[8,8],[width-8,height-8]], {type:&quot;Sphere&quot;});
+      svg.selectAll(&quot;*&quot;).remove();
+      svg.append(&quot;path&quot;).attr(&quot;class&quot;,&quot;sphere&quot;).attr(&quot;d&quot;,path({type:&quot;Sphere&quot;}));
+      svg.append(&quot;g&quot;).selectAll(&quot;path&quot;).data(countries).join(&quot;path&quot;).attr(&quot;class&quot;,&quot;country&quot;).attr(&quot;d&quot;,path);
+      const hubXY = projection([hub.lon,hub.lat]);
+      const arcPath = d =&gt; {
+        const target = projection([d.lon,d.lat]);
+        const mx=(hubXY[0]+target[0])/2, my=(hubXY[1]+target[1])/2-Math.min(42,Math.abs(target[0]-hubXY[0])*.12);
+        return `M${hubXY[0]},${hubXY[1]} Q${mx},${my} ${target[0]},${target[1]}`;
+      };
+      svg.append(&quot;g&quot;).selectAll(&quot;path&quot;).data(nodes.slice(1)).join(&quot;path&quot;).attr(&quot;class&quot;,d=&gt;`arc ${d.type}`).attr(&quot;d&quot;,arcPath);
+      const groups = svg.append(&quot;g&quot;).selectAll(&quot;g&quot;).data(nodes).join(&quot;g&quot;)
+        .attr(&quot;class&quot;,d=&gt;`node ${d.type}`).attr(&quot;transform&quot;,d=&gt;`translate(${projection([d.lon,d.lat])})`).attr(&quot;role&quot;,&quot;button&quot;).attr(&quot;tabindex&quot;,0).attr(&quot;aria-label&quot;,d=&gt;`${d.name}. ${d.people}`);
+      groups.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;hit&quot;).attr(&quot;r&quot;,16);
+      groups.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;focus-ring&quot;).attr(&quot;r&quot;,d=&gt;d.type===&quot;hub&quot;?10:7);
+      groups.each(function(d){
+        const g=d3.select(this), r=d.type===&quot;hub&quot;?7:4.5;
+        if(d.type===&quot;industry&quot;) g.append(&quot;rect&quot;).attr(&quot;class&quot;,&quot;mark&quot;).attr(&quot;x&quot;,-r).attr(&quot;y&quot;,-r).attr(&quot;width&quot;,r*2).attr(&quot;height&quot;,r*2);
+        else if(d.type===&quot;network&quot;) g.append(&quot;rect&quot;).attr(&quot;class&quot;,&quot;mark&quot;).attr(&quot;x&quot;,-r).attr(&quot;y&quot;,-r).attr(&quot;width&quot;,r*2).attr(&quot;height&quot;,r*2).attr(&quot;transform&quot;,&quot;rotate(45)&quot;);
+        else g.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;mark&quot;).attr(&quot;r&quot;,r);
+      });
+      groups.filter(d=&gt;d.label).append(&quot;text&quot;).attr(&quot;class&quot;,d=&gt;`label text-small ${d.type==='hub'?'':'optional-label'}`).attr(&quot;x&quot;,8).attr(&quot;y&quot;,-7).text(d=&gt;d.short||d.name);
+      const regionLabels = width &lt; 520 ? [] : [
+        {t:&quot;CANADÁ&quot;,p:[-106,62]},{t:&quot;ESTADOS UNIDOS&quot;,p:[-111,24]},{t:&quot;BRASIL&quot;,p:[-47,-8]},{t:&quot;EUROPA&quot;,p:[11,60]}
+      ];
+      svg.append(&quot;g&quot;).selectAll(&quot;text&quot;).data(regionLabels).join(&quot;text&quot;).attr(&quot;class&quot;,&quot;region-label text-small&quot;).attr(&quot;x&quot;,d=&gt;projection(d.p)[0]).attr(&quot;y&quot;,d=&gt;projection(d.p)[1]).text(d=&gt;d.t);
+      function select(d){ detail.innerHTML=`&lt;h3&gt;${d.name}&lt;/h3&gt;&lt;p&gt;${d.people}&lt;/p&gt;`; }
+      groups.on(&quot;click&quot;,(event,d)=&gt;select(d)).on(&quot;keydown&quot;,(event,d)=&gt;{if(event.key===&quot;Enter&quot;||event.key===&quot; &quot;){event.preventDefault();select(d);}});
+    }
+    new ResizeObserver(draw).observe(root.querySelector(&quot;.map-wrap&quot;));
+  &lt;/script&gt;
+&lt;/section&gt;
+
+
+&lt;style id=&quot;codex-visualization-document-scrollbar&quot;&gt;html,body{scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}&lt;/style&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  frame.srcdoc = srcdoc;
+  delete frame.dataset.srcdoc;
+})();
+</script>
+</body>
+</html>
