@@ -6,7 +6,7 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>rede-colaboracoes-modelo-1.html</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:clamp(.75rem,2vw,2rem);background:inherit}iframe{display:block;width:100%;max-width:1440px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
 <body>
 <iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="rede-colaboracoes-modelo-1.html" data-srcdoc="&lt;!doctype html&gt;
@@ -1204,7 +1204,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #collab-map-model-1 .key.academic { border-radius:50%; }
     #collab-map-model-1 .key.industry { background:var(--viz-series-3); }
     #collab-map-model-1 .key.network { background:var(--viz-series-5); transform:rotate(45deg); }
-    #collab-map-model-1 .map-wrap { position:relative; width:100%; min-height:390px; }
+    #collab-map-model-1 .map-wrap { position:relative; width:100%; min-height:0; }
     #collab-map-model-1 svg { display:block; width:100%; height:auto; }
     #collab-map-model-1 .country { fill:var(--muted); stroke:var(--background); stroke-width:.45; }
     #collab-map-model-1 .sphere { fill:color-mix(in srgb, var(--muted) 35%, transparent); stroke:var(--border); stroke-width:1; }
@@ -1212,6 +1212,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #collab-map-model-1 .arc.academic { stroke:var(--viz-series-1); }
     #collab-map-model-1 .arc.industry { stroke:var(--viz-series-3); stroke-dasharray:4 3; }
     #collab-map-model-1 .arc.network { stroke:var(--viz-series-5); stroke-dasharray:1.5 3; }
+    #collab-map-model-1 .leader { stroke:var(--muted-foreground); stroke-width:.8; opacity:.55; pointer-events:none; }
     #collab-map-model-1 .node { cursor:pointer; outline:none; }
     #collab-map-model-1 .node .hit { fill:transparent; }
     #collab-map-model-1 .node .mark { stroke:var(--background); stroke-width:1.4; }
@@ -1220,8 +1221,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     #collab-map-model-1 .node.network .mark { fill:var(--viz-series-5); }
     #collab-map-model-1 .node.hub .mark { fill:var(--foreground); stroke:var(--background); stroke-width:2; }
     #collab-map-model-1 .node:focus .focus-ring, #collab-map-model-1 .node:hover .focus-ring { fill:none; stroke:var(--ring); stroke-width:2; }
-    #collab-map-model-1 .label { fill:var(--foreground); font-weight:500; paint-order:stroke; stroke:var(--background); stroke-width:3px; stroke-linejoin:round; }
-    #collab-map-model-1 .region-label { fill:var(--muted-foreground); letter-spacing:.08em; text-transform:uppercase; }
+    #collab-map-model-1 .label { fill:var(--foreground); font-weight:500; paint-order:stroke; stroke:var(--background); stroke-width:3px; stroke-linejoin:round; pointer-events:none; }
+    #collab-map-model-1 .region-label { fill:var(--muted-foreground); letter-spacing:.08em; text-transform:uppercase; pointer-events:none; }
     #collab-map-model-1 .detail { margin-top:8px; }
     #collab-map-model-1 .detail h3 { margin:0 0 4px; font-weight:500; }
     #collab-map-model-1 .detail p { margin:0; }
@@ -1234,7 +1235,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #collab-map-model-1 .note { margin-top:6px; color:var(--muted-foreground); }
     @media (max-width:820px) { #collab-map-model-1 .directory { grid-template-columns:repeat(2,minmax(0,1fr)); } }
     @media (max-width:520px) {
-      #collab-map-model-1 .map-wrap { min-height:280px; }
+      #collab-map-model-1 .map-wrap { min-height:0; }
       #collab-map-model-1 .region-label, #collab-map-model-1 .optional-label { display:none; }
       #collab-map-model-1 .legend { gap:9px; }
       #collab-map-model-1 .directory { grid-template-columns:1fr; }
@@ -1342,35 +1343,67 @@ html&gt;body{padding:0}&lt;/style&gt;
       {name:&quot;NANP Modeling Committee&quot;,lon:-99.0,lat:36.5,type:&quot;network&quot;,people:&quot;Rede norte-americana de modelagem nutricional.&quot;,label:true,short:&quot;NANP&quot;}
     ];
     const countries = feature(world, world.objects.features).features;
-    const projection = d3.geoNaturalEarth1();
+    const projection = d3.geoMercator();
     const path = d3.geoPath(projection);
     const hub = nodes[0];
+    const focusBounds = {type:&quot;MultiPoint&quot;,coordinates:[[-135,-55],[28,74]]};
+    const offsets = new Map([
+      [&quot;Université Laval&quot;,[30,-35]],
+      [&quot;Centre de développement du porc du Québec · CDPQ&quot;,[60,-50]],
+      [&quot;McGill University&quot;,[-45,-30]],
+      [&quot;Concordia University&quot;,[-115,-70]],
+      [&quot;Université de Montréal&quot;,[0,80]],
+      [&quot;Swine Innovation Porc · Cluster 4&quot;,[-70,-60]],
+      [&quot;JYGA Technologies&quot;,[55,25]],
+      [&quot;Elanco / BioMEdit&quot;,[25,55]],
+      [&quot;Cargill&quot;,[0,32]],
+      [&quot;INRAE / Institut Agro · PEGASE&quot;,[-40,-40]],
+      [&quot;Adisseo&quot;,[0,-50]],
+      [&quot;MiXscience&quot;,[-60,0]],
+      [&quot;Universidad de Zaragoza&quot;,[-50,35]],
+      [&quot;CIHEAM Zaragoza&quot;,[-15,60]],
+      [&quot;Universitat Politècnica de València&quot;,[20,70]],
+      [&quot;Wageningen University / Farmworx&quot;,[35,-30]],
+      [&quot;FR Analytics&quot;,[65,-10]],
+      [&quot;University of Veterinary Medicine Vienna&quot;,[65,25]],
+      [&quot;University of Sassari&quot;,[45,55]],
+      [&quot;Agroscope&quot;,[5,25]]
+    ]);
     function draw(){
       const width = Math.max(320, root.querySelector(&quot;.map-wrap&quot;).clientWidth);
-      const height = width &lt; 520 ? 300 : Math.min(520, width * .52);
+      const height = width &lt; 520 ? 360 : Math.min(720, width * .56);
       svg.attr(&quot;viewBox&quot;, `0 0 ${width} ${height}`);
-      projection.fitExtent([[8,8],[width-8,height-8]], {type:&quot;Sphere&quot;});
+      projection.fitExtent([[26,18],[width-26,height-18]], focusBounds).clipExtent([[0,0],[width,height]]);
       svg.selectAll(&quot;*&quot;).remove();
       svg.append(&quot;path&quot;).attr(&quot;class&quot;,&quot;sphere&quot;).attr(&quot;d&quot;,path({type:&quot;Sphere&quot;}));
       svg.append(&quot;g&quot;).selectAll(&quot;path&quot;).data(countries).join(&quot;path&quot;).attr(&quot;class&quot;,&quot;country&quot;).attr(&quot;d&quot;,path);
-      const hubXY = projection([hub.lon,hub.lat]);
+      const screenPoint = d =&gt; {
+        const point = projection([d.lon,d.lat]), delta = offsets.get(d.name) || [0,0];
+        return [point[0]+delta[0],point[1]+delta[1]];
+      };
+      const hubXY = screenPoint(hub);
       const arcPath = d =&gt; {
-        const target = projection([d.lon,d.lat]);
+        const target = screenPoint(d);
         const mx=(hubXY[0]+target[0])/2, my=(hubXY[1]+target[1])/2-Math.min(42,Math.abs(target[0]-hubXY[0])*.12);
         return `M${hubXY[0]},${hubXY[1]} Q${mx},${my} ${target[0]},${target[1]}`;
       };
       svg.append(&quot;g&quot;).selectAll(&quot;path&quot;).data(nodes.slice(1)).join(&quot;path&quot;).attr(&quot;class&quot;,d=&gt;`arc ${d.type}`).attr(&quot;d&quot;,arcPath);
+      svg.append(&quot;g&quot;).selectAll(&quot;line&quot;).data(nodes.filter(d=&gt;offsets.has(d.name))).join(&quot;line&quot;).attr(&quot;class&quot;,&quot;leader&quot;)
+        .attr(&quot;x1&quot;,d=&gt;projection([d.lon,d.lat])[0]).attr(&quot;y1&quot;,d=&gt;projection([d.lon,d.lat])[1])
+        .attr(&quot;x2&quot;,d=&gt;screenPoint(d)[0]).attr(&quot;y2&quot;,d=&gt;screenPoint(d)[1]);
       const groups = svg.append(&quot;g&quot;).selectAll(&quot;g&quot;).data(nodes).join(&quot;g&quot;)
-        .attr(&quot;class&quot;,d=&gt;`node ${d.type}`).attr(&quot;transform&quot;,d=&gt;`translate(${projection([d.lon,d.lat])})`).attr(&quot;role&quot;,&quot;button&quot;).attr(&quot;tabindex&quot;,0).attr(&quot;aria-label&quot;,d=&gt;`${d.name}. ${d.people}`);
-      groups.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;hit&quot;).attr(&quot;r&quot;,16);
-      groups.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;focus-ring&quot;).attr(&quot;r&quot;,d=&gt;d.type===&quot;hub&quot;?10:7);
+        .attr(&quot;class&quot;,d=&gt;`node ${d.type}`).attr(&quot;transform&quot;,d=&gt;`translate(${screenPoint(d)})`).attr(&quot;role&quot;,&quot;button&quot;).attr(&quot;tabindex&quot;,0).attr(&quot;aria-label&quot;,d=&gt;`${d.name}. ${d.people}`);
+      groups.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;hit&quot;).attr(&quot;r&quot;,14);
+      groups.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;focus-ring&quot;).attr(&quot;r&quot;,d=&gt;d.type===&quot;hub&quot;?13:10);
       groups.each(function(d){
-        const g=d3.select(this), r=d.type===&quot;hub&quot;?7:4.5;
+        const g=d3.select(this), r=d.type===&quot;hub&quot;?9:6;
         if(d.type===&quot;industry&quot;) g.append(&quot;rect&quot;).attr(&quot;class&quot;,&quot;mark&quot;).attr(&quot;x&quot;,-r).attr(&quot;y&quot;,-r).attr(&quot;width&quot;,r*2).attr(&quot;height&quot;,r*2);
         else if(d.type===&quot;network&quot;) g.append(&quot;rect&quot;).attr(&quot;class&quot;,&quot;mark&quot;).attr(&quot;x&quot;,-r).attr(&quot;y&quot;,-r).attr(&quot;width&quot;,r*2).attr(&quot;height&quot;,r*2).attr(&quot;transform&quot;,&quot;rotate(45)&quot;);
         else g.append(&quot;circle&quot;).attr(&quot;class&quot;,&quot;mark&quot;).attr(&quot;r&quot;,r);
       });
-      groups.filter(d=&gt;d.label).append(&quot;text&quot;).attr(&quot;class&quot;,d=&gt;`label text-small ${d.type==='hub'?'':'optional-label'}`).attr(&quot;x&quot;,8).attr(&quot;y&quot;,-7).text(d=&gt;d.short||d.name);
+      svg.append(&quot;g&quot;).selectAll(&quot;text&quot;).data(nodes.filter(d=&gt;d.label)).join(&quot;text&quot;)
+        .attr(&quot;class&quot;,d=&gt;`label text-small ${d.type==='hub'?'':'optional-label'}`)
+        .attr(&quot;x&quot;,d=&gt;screenPoint(d)[0]+11).attr(&quot;y&quot;,d=&gt;screenPoint(d)[1]-10).text(d=&gt;d.short||d.name);
       const regionLabels = width &lt; 520 ? [] : [
         {t:&quot;CANADÁ&quot;,p:[-106,62]},{t:&quot;ESTADOS UNIDOS&quot;,p:[-111,24]},{t:&quot;BRASIL&quot;,p:[-47,-8]},{t:&quot;EUROPA&quot;,p:[11,60]}
       ];
