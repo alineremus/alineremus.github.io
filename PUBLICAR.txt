@@ -1,0 +1,13 @@
+Ração em Jogo — publicação no GitHub Pages
+
+Repositório: https://github.com/alineremus/alineremus.github.io
+
+1. Descompacte Racao-em-Jogo-GitHub-Pages.zip.
+2. No repositório, na branch main, use Add file > Upload files.
+3. Arraste a pasta jogo-racao extraída (contendo index.html). Não envie o ZIP e não substitua o index.html da raiz.
+4. Confirme o commit e aguarde a publicação do GitHub Pages.
+5. O endereço previsto é https://alineremus.github.io/jogo-racao/.
+
+O jogo contém tudo o que precisa. A página inicial e a pasta network permanecem como estão.
+
+Em 18/09/2026, a conexão do assistente conseguiu ler o repositório, mas a tentativa de criação foi recusada com HTTP 403 Resource not accessible by integration. A página ainda não foi publicada pelo assistente.
